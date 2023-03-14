@@ -73,7 +73,7 @@ function multiply(a, b){
 // Define the divide function of two numbers
 function divide(a, b){
   if (b === 0) {
-    return "No se puede dividir para cero";
+    return "Cannot divide by zero";
   } else {
     return a / b;
   }
