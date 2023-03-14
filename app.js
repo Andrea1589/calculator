@@ -1,3 +1,6 @@
+//Set the initial state of decimal button
+let isDecimalUsed = false;
+
 //Get the input element
 const display = document.getElementById("display");
 
@@ -10,6 +13,18 @@ numberButtons.forEach((button) => {
     const number = button.textContent;
     display.value += number;
   });  
+});
+
+//Get decimal button
+const decimalButton = document.querySelector(".decimal");
+
+//Attach click event listener to the decimal button
+decimalButton.addEventListener('click', () => {
+  const decimalSign = decimalButton.textContent;
+  if (!isDecimalUsed){
+    display.value += decimalSign;
+    isDecimalUsed = true;
+  }
 });
 
 // Define the operate function to perform an arithmetic operation
