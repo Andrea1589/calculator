@@ -1,3 +1,17 @@
+//Get the input element
+const display = document.getElementById("display");
+
+//Get all number buttons
+const numberButtons = document.querySelectorAll(".number");
+
+//Attach click event listener to each number button
+numberButtons.forEach((button) => {
+  button.addEventListener('click', () => {
+    const number = button.textContent;
+    display.value += number;
+  });  
+});
+
 // Define the operate function to perform an arithmetic operation
 // based on the operator string and two numbers
 function operate(operator, a, b){
