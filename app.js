@@ -10,6 +10,7 @@ let isDecimalUsed = false;
 
 //Set initial state of new number
 let isFirstDigit = false;
+let isFirstOperand = false;
 
 //Get the input element
 const display = document.getElementById("display");
