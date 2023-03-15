@@ -3,14 +3,16 @@ let number_a = 0;
 let number_b = 0;
 
 //Set operator intial value
-let operator = "";
+let operatorChain = "";
 
 //Set initial state of decimal button
 let isDecimalUsed = false;
 
 //Set initial state of new number
 let isFirstDigit = false;
-let isFirstOperand = false;
+
+//Set initial number of operands during one calculation
+let numOperators = 0;
 
 //Get the input element
 const display = document.getElementById("display");
@@ -49,9 +51,21 @@ const operatorButtons = document.querySelectorAll(".basic-operator");
 //Attach click event listener to each basic operator button
 operatorButtons.forEach((button) => {
   button.addEventListener('click', () => {
-    operator = button.textContent;
-    number_a = display.value;
+    operatorChain += button.textContent;
     isFirstDigit = true;
+    numOperators += 1;
+
+    if (numOperators === 1) {
+      number_a = display.value;
+      console.log (number_a);
+    } else {
+      const operator = operatorChain.substr(operatorChain.length - 2, 1);
+      number_b = display.value;
+      console.log (number_a + operator + number_b);
+      number_a = operate(operator, number_a, number_b);
+      display.value = number_a;
+    } 
+    
   });
 });
 
@@ -68,6 +82,8 @@ equalButton.addEventListener('click', () => {
 // based on the operator string and two numbers
 function operate(operator, a, b){
   let result = 0;
+  a = Number(a);
+  b = Number(b);
   switch (operator) {
     case '+':
         result = add (a, b);
