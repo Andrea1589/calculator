@@ -1,5 +1,15 @@
-//Set the initial state of decimal button
+//Set numbers in zero
+let number_a = 0;
+let number_b = 0;
+
+//Set operator intial value
+let operator = "";
+
+//Set initial state of decimal button
 let isDecimalUsed = false;
+
+//Set initial state of new number
+let isFirstDigit = false;
 
 //Get the input element
 const display = document.getElementById("display");
@@ -11,7 +21,12 @@ const numberButtons = document.querySelectorAll(".number");
 numberButtons.forEach((button) => {
   button.addEventListener('click', () => {
     const number = button.textContent;
-    display.value += number;
+    if (!isFirstDigit){
+      display.value += number;
+    } else {
+      display.value = number;
+      isFirstDigit = false;
+    }
   });  
 });
 
@@ -25,6 +40,27 @@ decimalButton.addEventListener('click', () => {
     display.value += decimalSign;
     isDecimalUsed = true;
   }
+});
+
+//Get all basic operator buttons
+const operatorButtons = document.querySelectorAll(".basic-operator");
+
+//Attach click event listener to each basic operator button
+operatorButtons.forEach((button) => {
+  button.addEventListener('click', () => {
+    operator = button.textContent;
+    number_a = display.value;
+    isFirstDigit = true;
+  });
+});
+
+//Get equal button
+const equalButton = document.querySelector(".equal-operator");
+
+//Attach click event listener to the equal button
+equalButton.addEventListener('click', () => {
+  number_b = display.value;
+  display.value = operate(operator, number_a, number_b)
 });
 
 // Define the operate function to perform an arithmetic operation
