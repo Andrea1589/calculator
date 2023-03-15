@@ -54,7 +54,8 @@ operatorButtons.forEach((button) => {
     operatorChain += button.textContent;
     isFirstDigit = true;
     numOperators += 1;
-
+    isDecimalUsed = false;
+    
     if (numOperators === 1) {
       number_a = display.value;
       console.log (number_a);
