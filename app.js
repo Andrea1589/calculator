@@ -55,12 +55,12 @@ operatorButtons.forEach((button) => {
     isFirstDigit = true;
     numOperators += 1;
     isDecimalUsed = false;
-
+    const operator = operatorChain.substr(operatorChain.length - 2, 1);
+    
     if (numOperators === 1) {
       number_a = display.value;
       console.log (number_a);
     } else {
-      const operator = operatorChain.substr(operatorChain.length - 2, 1);
       number_b = display.value;
       console.log (number_a + operator + number_b);
       number_a = operate(operator, number_a, number_b);
@@ -71,13 +71,15 @@ operatorButtons.forEach((button) => {
 });
 
 //Get equal button
-const equalButton = document.querySelector(".equal-operator");
+// const equalButton = document.querySelector(".equal-operator");
 
 //Attach click event listener to the equal button
-equalButton.addEventListener('click', () => {
-  number_b = display.value;
-  display.value = operate(operator, number_a, number_b)
-});
+// equalButton.addEventListener('click', () => {
+//   number_b = display.value;
+//   const operator = operatorChain.substr(operatorChain.length - 2, 1);
+//   console.log(operator);
+//   display.value = operate(operator, number_a, number_b)
+// });
 
 //Get equal button
 const clearButton = document.querySelector(".clear-button");
