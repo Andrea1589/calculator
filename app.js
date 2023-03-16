@@ -55,7 +55,7 @@ operatorButtons.forEach((button) => {
     isFirstDigit = true;
     numOperators += 1;
     isDecimalUsed = false;
-    
+
     if (numOperators === 1) {
       number_a = display.value;
       console.log (number_a);
@@ -77,6 +77,14 @@ const equalButton = document.querySelector(".equal-operator");
 equalButton.addEventListener('click', () => {
   number_b = display.value;
   display.value = operate(operator, number_a, number_b)
+});
+
+//Get equal button
+const clearButton = document.querySelector(".clear-button");
+
+//Attach click event listener to the clear button
+clearButton.addEventListener('click', () => {
+ clear();
 });
 
 // Define the operate function to perform an arithmetic operation
@@ -131,4 +139,26 @@ function divide(a, b){
   } else {
     return a / b;
   }
+}
+
+//Define the clear function
+function clear(){
+  //Set numbers in zero
+  number_a = 0;
+  number_b = 0;
+
+  //Set operator intial value
+  operatorChain = "";
+
+  //Set initial state of decimal button
+  isDecimalUsed = false;
+
+  //Set initial state of new number
+  isFirstDigit = false;
+
+  //Set initial number of operands during one calculation
+  numOperators = 0;
+
+  //Restart the display value
+  display.value = "";
 }
