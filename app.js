@@ -14,6 +14,9 @@ let isFirstDigit = false;
 //Set initial number of operands during one calculation
 let numOperators = 0;
 
+//Set initial state for a new operation
+let newOperation = false;
+
 //Get the input element
 const display = document.getElementById("display");
 display.value = 0;
@@ -24,6 +27,11 @@ const numberButtons = document.querySelectorAll(".number");
 //Attach click event listener to each number button
 numberButtons.forEach((button) => {
   button.addEventListener('click', () => {
+    if (newOperation === true){
+      clearDisplay();
+      display.value = 0;
+      newOperation = false;
+    }
     const digit = Number(button.textContent);
     const number = Number (display.value);
     if (!isFirstDigit && number != 0){
@@ -62,6 +70,7 @@ operatorButtons.forEach((button) => {
     isDecimalUsed = false;
     const nextOperator = operatorChain.slice(operatorChain.length - 2, operatorChain.length - 1);
     const lastOperator = operatorChain.slice(operatorChain.length - 1, operatorChain.length);
+
     if (numOperators === 1) {
       number_a = display.value;
     } else {
@@ -71,9 +80,10 @@ operatorButtons.forEach((button) => {
       historialBox.value += number_a + "\n\n";
       display.value = number_a;
     }
-    // if (lastOperator === "=") {
-    //   clearDisplay();
-    // }
+
+    if (lastOperator === "=") {
+      newOperation = true;
+    }
 
   });
 });
