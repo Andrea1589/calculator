@@ -15,9 +15,9 @@ let isFirstDigit = false;
 let numOperators = 0;
 
 //Set initial state for a new operation
-let newOperation = false;
+//let newOperation = false;
 
-//Get the input element
+//Get and set the input element
 const display = document.getElementById("display");
 display.value = 0;
 
@@ -27,11 +27,10 @@ const numberButtons = document.querySelectorAll(".number");
 //Attach click event listener to each number button
 numberButtons.forEach((button) => {
   button.addEventListener('click', () => {
-    if (newOperation === true){
-      clearDisplay();
-      display.value = 0;
-      newOperation = false;
-    }
+    // if (newOperation === true){
+    //   clearDisplay();
+    //   newOperation = false;
+    // }
     const digit = Number(button.textContent);
     const number = Number (display.value);
     if (!isFirstDigit && number != 0){
@@ -82,7 +81,8 @@ operatorButtons.forEach((button) => {
     }
 
     if (lastOperator === "=") {
-      newOperation = true;
+      //newOperation = true;
+      numOperators = 0;
     }
 
   });
@@ -156,7 +156,7 @@ function clearDisplay(){
   //Set numbers in zero
   number_a = 0;
   number_b = 0;
-
+ 
   //Set operator intial value
   operatorChain = "";
 
@@ -170,7 +170,7 @@ function clearDisplay(){
   numOperators = 0;
 
   //Restart the display value
-  display.value = "";
+  display.value = 0;
 
   //Restart historial box
   historialBox.value = "";
