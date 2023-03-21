@@ -2,7 +2,7 @@
 let number_a = 0;
 let number_b = 0;
 
-//Set operator intial value
+//Set operator initial value
 let operatorChain = "";
 
 //Set initial state of decimal button
@@ -16,6 +16,7 @@ let numOperators = 0;
 
 //Get the input element
 const display = document.getElementById("display");
+display.value = 0;
 
 //Get all number buttons
 const numberButtons = document.querySelectorAll(".number");
@@ -23,11 +24,12 @@ const numberButtons = document.querySelectorAll(".number");
 //Attach click event listener to each number button
 numberButtons.forEach((button) => {
   button.addEventListener('click', () => {
-    const number = button.textContent;
-    if (!isFirstDigit){
-      display.value += number;
+    const digit = Number(button.textContent);
+    const number = Number (display.value);
+    if (!isFirstDigit && number != 0){
+        display.value += digit;
     } else {
-      display.value = number;
+      display.value = digit;
       isFirstDigit = false;
     }
   });  
@@ -48,6 +50,9 @@ decimalButton.addEventListener('click', () => {
 //Get all basic operator buttons
 const operatorButtons = document.querySelectorAll(".basic-operator");
 
+//Get historial texarea element
+const historialBox = document.querySelector(".historial-box");
+
 //Attach click event listener to each basic operator button
 operatorButtons.forEach((button) => {
   button.addEventListener('click', () => {
@@ -55,38 +60,30 @@ operatorButtons.forEach((button) => {
     isFirstDigit = true;
     numOperators += 1;
     isDecimalUsed = false;
-    const operator = operatorChain.substr(operatorChain.length - 2, 1);
-    
+    const nextOperator = operatorChain.slice(operatorChain.length - 2, operatorChain.length - 1);
+    const lastOperator = operatorChain.slice(operatorChain.length - 1, operatorChain.length);
     if (numOperators === 1) {
       number_a = display.value;
-      console.log (number_a);
     } else {
       number_b = display.value;
-      console.log (number_a + operator + number_b);
-      number_a = operate(operator, number_a, number_b);
+      historialBox.value +=  (number_a + nextOperator + number_b) + "=\n";
+      number_a = operate(nextOperator, number_a, number_b);
+      historialBox.value += number_a + "\n\n";
       display.value = number_a;
-    } 
-    
+    }
+    // if (lastOperator === "=") {
+    //   clearDisplay();
+    // }
+
   });
 });
 
-//Get equal button
-// const equalButton = document.querySelector(".equal-operator");
-
-//Attach click event listener to the equal button
-// equalButton.addEventListener('click', () => {
-//   number_b = display.value;
-//   const operator = operatorChain.substr(operatorChain.length - 2, 1);
-//   console.log(operator);
-//   display.value = operate(operator, number_a, number_b)
-// });
-
-//Get equal button
+//Get clear button
 const clearButton = document.querySelector(".clear-button");
 
 //Attach click event listener to the clear button
 clearButton.addEventListener('click', () => {
- clear();
+ clearDisplay();
 });
 
 // Define the operate function to perform an arithmetic operation
@@ -143,8 +140,9 @@ function divide(a, b){
   }
 }
 
+
 //Define the clear function
-function clear(){
+function clearDisplay(){
   //Set numbers in zero
   number_a = 0;
   number_b = 0;
@@ -163,4 +161,7 @@ function clear(){
 
   //Restart the display value
   display.value = "";
+
+  //Restart historial box
+  historialBox.value = "";
 }
