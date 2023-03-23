@@ -100,8 +100,8 @@ clearButton.addEventListener('click', () => {
 // based on the operator string and two numbers
 function operate(operator, a, b){
   let result = 0;
-  a = Number(a);
-  b = Number(b);
+  a = parseFloat(a);
+  b = parseFloat(b);
   switch (operator) {
     case '+':
         result = add (a, b);
@@ -149,7 +149,6 @@ function divide(a, b){
     return a / b;
   }
 }
-
 
 //Define the clear function
 function clearDisplay(){
