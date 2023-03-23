@@ -27,12 +27,8 @@ const numberButtons = document.querySelectorAll(".number");
 //Attach click event listener to each number button
 numberButtons.forEach((button) => {
   button.addEventListener('click', () => {
-    // if (newOperation === true){
-    //   clearDisplay();
-    //   newOperation = false;
-    // }
-    const digit = Number(button.textContent);
-    const number = Number (display.value);
+    const digit = parseFloat(button.textContent);
+    const number = parseFloat (display.value);
     if (!isFirstDigit && number != 0){
         display.value += digit;
     } else {
@@ -81,7 +77,6 @@ operatorButtons.forEach((button) => {
     }
 
     if (lastOperator === "=") {
-      //newOperation = true;
       numOperators = 0;
     }
 
@@ -152,25 +147,12 @@ function divide(a, b){
 
 //Define the clear function
 function clearDisplay(){
-  //Set numbers in zero
   number_a = 0;
   number_b = 0;
- 
-  //Set operator intial value
   operatorChain = "";
-
-  //Set initial state of decimal button
   isDecimalUsed = false;
-
-  //Set initial state of new number
   isFirstDigit = false;
-
-  //Set initial number of operands during one calculation
   numOperators = 0;
-
-  //Restart the display value
   display.value = 0;
-
-  //Restart historial box
   historialBox.value = "";
 }
