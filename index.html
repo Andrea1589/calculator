@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css" type="text/css">
     <title>Calculator</title>
 </head>
 <body>
@@ -11,7 +12,7 @@
       <input type="text" id="display" readonly>
         <table>
             <tr>
-                <td><button id="clear">C</button></td>
+                <td><button class="clear-button" id="clear">C</button></td>
                 <td><button id="plus-minus">±</button></td>
                 <td><button id="percent">%</button></td>
                 <td><button class="basic-operator" id="divide">÷</button></td>
@@ -37,10 +38,11 @@
               <tr>
                 <td><button class="number" id="zero">0</button></td>
                 <td><button class="decimal" id="decimal" >.</button></td>
-                <td><button class="equal-operator" id="equals">=</button></td>
+                <td><button class="basic-operator" id="equals">=</button></td>
               </tr>
         </table>    
-    </div>
+        <textarea class="historial-box" id="historial" readonly></textarea>
+      </div>
     <script src="./app.js"></script>  
 </body>
 </html>
