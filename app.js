@@ -84,7 +84,7 @@ operatorButtons.forEach((button) => {
 });
 
 //Get plus minus button
-const plusMinusButton = document.querySelector(".plus-minus-button");
+const plusMinusButton = document.querySelector("#plus-minus");
 
 //Attach click event listener to the plus minus button
 plusMinusButton.addEventListener('click', () => {
@@ -102,7 +102,7 @@ percentButton.addEventListener('click', () => {
 });
 
 //Get clear button
-const clearButton = document.querySelector(".clear-button");
+const clearButton = document.querySelector("#clear");
 
 //Attach click event listener to the clear button
 clearButton.addEventListener('click', () => {
