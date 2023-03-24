@@ -91,6 +91,16 @@ plusMinusButton.addEventListener('click', () => {
   display.value = display.value * (-1);
 });
 
+
+//Get percent button
+const percentButton = document.querySelector("#percent")
+
+//Attach click event listener to the plus minus button
+percentButton.addEventListener('click', () => {
+  const percentValue = parseFloat(number_a) / 100;
+  display.value = display.value * percentValue;
+});
+
 //Get clear button
 const clearButton = document.querySelector(".clear-button");
 
