@@ -53,7 +53,7 @@ decimalButton.addEventListener('click', () => {
 //Get all basic operator buttons
 const operatorButtons = document.querySelectorAll(".basic-operator");
 
-//Get historial texarea element
+//Get historial textarea element
 const historialBox = document.querySelector(".historial-box");
 
 //Attach click event listener to each basic operator button
@@ -83,6 +83,14 @@ operatorButtons.forEach((button) => {
   });
 });
 
+//Get plus minus button
+const plusMinusButton = document.querySelector(".plus-minus-button");
+
+//Attach click event listener to the plus minus button
+plusMinusButton.addEventListener('click', () => {
+  display.value = display.value * (-1);
+});
+
 //Get clear button
 const clearButton = document.querySelector(".clear-button");
 
@@ -110,10 +118,10 @@ function operate(operator, a, b){
         result = multiply (a, b);
       break;
 
-      case '÷':
-        result = divide (a, b);
-      break;
-  
+    case '÷':
+      result = divide (a, b);
+    break;
+      
     default:
       console.log('Invalid operator');
       break;
@@ -145,7 +153,7 @@ function divide(a, b){
   }
 }
 
-//Define the clear function
+//Restart initial values to initial sta
 function clearDisplay(){
   number_a = 0;
   number_b = 0;
