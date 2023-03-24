@@ -9,11 +9,18 @@
 </head>
 <body>
     <div id="calculator">
-      <input type="text" id="display" readonly>
+      <div class="section-1">
+        <h1>CALCULATOR</h1>
+        <input type="text" id="display" readonly>
+      </div>
+      <div class="section-2">
+        ODIN PROJECT
+      </div>
+      <div class="section-3">
         <table>
             <tr>
-                <td><button class="clear-button" id="clear">C</button></td>
-                <td><button id="plus-minus">±</button></td>
+                <td><button class="clear-button" id="clear">AC</button></td>
+                <td><button class="plus-minus-button" id="plus-minus">±</button></td>
                 <td><button id="percent">%</button></td>
                 <td><button class="basic-operator" id="divide">÷</button></td>
             </tr>
@@ -41,7 +48,8 @@
                 <td><button class="basic-operator" id="equals">=</button></td>
               </tr>
         </table>    
-        <textarea class="historial-box" id="historial" readonly></textarea>
+      </div>
+      <textarea class="historial-box" id="historial" readonly hidden></textarea>
       </div>
     <script src="./app.js"></script>  
 </body>
