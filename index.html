@@ -9,44 +9,49 @@
 </head>
 <body>
     <div id="calculator">
-      <div class="section-1">
-        <h1>CALCULATOR</h1>
-        <input type="text" id="display" readonly>
+      <div id="left-side">
+        <div class="section-1">
+          <h1>MY FIRST CALCULATOR</h1>
+          <input type="text" id="display" readonly>
+        </div>
+        <div class="section-2">
+          <table>
+              <tr>
+                  <td><button id="clear">C</button></td>
+                  <td><button id="plus-minus">±</button></td>
+                  <td><button id="percent">%</button></td>
+                  <td><button class="basic-operator" id="divide">÷</button></td>
+              </tr>
+              <tr>
+                  <td><button class="number" id="seven">7</button></td>
+                  <td><button class="number" id="eight">8</button></td>
+                  <td><button class="number" id="nine">9</button></td>
+                  <td><button class="basic-operator" id="multiply">×</button></td>
+                </tr>
+                <tr>
+                  <td><button class="number" id="four">4</button></td>
+                  <td><button class="number" id="five">5</button></td>
+                  <td><button class="number" id="six">6</button></td>
+                  <td><button class="basic-operator" id="subtract">-</button></td>
+                </tr>
+                <tr>
+                  <td><button class="number" id="one">1</button></td>
+                  <td><button class="number" id="two">2</button></td>
+                  <td><button class="number" id="three">3</button></td>
+                  <td rowspan="2"><button class="basic-operator" id="add">+</button></td>
+                </tr>
+                <tr>
+                  <td><button class="number" id="zero">0</button></td>
+                  <td><button class="decimal" id="decimal" >.</button></td>
+                  <td><button class="basic-operator" id="equals">=</button></td>
+                </tr>
+          </table>    
+        </div>
       </div>
-      <div class="section-2">
-        <table>
-            <tr>
-                <td><button id="clear">C</button></td>
-                <td><button id="plus-minus">±</button></td>
-                <td><button id="percent">%</button></td>
-                <td><button class="basic-operator" id="divide">÷</button></td>
-            </tr>
-            <tr>
-                <td><button class="number" id="seven">7</button></td>
-                <td><button class="number" id="eight">8</button></td>
-                <td><button class="number" id="nine">9</button></td>
-                <td><button class="basic-operator" id="multiply">×</button></td>
-              </tr>
-              <tr>
-                <td><button class="number" id="four">4</button></td>
-                <td><button class="number" id="five">5</button></td>
-                <td><button class="number" id="six">6</button></td>
-                <td><button class="basic-operator" id="subtract">-</button></td>
-              </tr>
-              <tr>
-                <td><button class="number" id="one">1</button></td>
-                <td><button class="number" id="two">2</button></td>
-                <td><button class="number" id="three">3</button></td>
-                <td rowspan="2"><button class="basic-operator" id="add">+</button></td>
-              </tr>
-              <tr>
-                <td><button class="number" id="zero">0</button></td>
-                <td><button class="decimal" id="decimal" >.</button></td>
-                <td><button class="basic-operator" id="equals">=</button></td>
-              </tr>
-        </table>    
+      <div class="right-side">
+        <h2>Historial</h2>
+        <textarea name="history" id="history" readonly></textarea>
       </div>
-      <textarea class="historial-box" id="historial" readonly hidden></textarea>
       </div>
     <script src="./app.js"></script>  
 </body>

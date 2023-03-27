@@ -14,9 +14,6 @@ let isFirstDigit = false;
 //Set initial number of operands during one calculation
 let numOperators = 0;
 
-//Set initial state for a new operation
-//let newOperation = false;
-
 //Get and set the input element
 const display = document.getElementById("display");
 display.value = 0;
@@ -54,7 +51,7 @@ decimalButton.addEventListener('click', () => {
 const operatorButtons = document.querySelectorAll(".basic-operator");
 
 //Get historial textarea element
-const historialBox = document.querySelector(".historial-box");
+const historialBox = document.querySelector("#history");
 
 //Attach click event listener to each basic operator button
 operatorButtons.forEach((button) => {
@@ -70,7 +67,7 @@ operatorButtons.forEach((button) => {
       number_a = display.value;
     } else {
       number_b = display.value;
-      historialBox.value +=  (number_a + nextOperator + number_b) + "=\n";
+      historialBox.value += number_a + nextOperator + number_b + "=";
       number_a = operate(nextOperator, number_a, number_b);
       historialBox.value += number_a + "\n\n";
       display.value = number_a;
@@ -90,7 +87,6 @@ const plusMinusButton = document.querySelector("#plus-minus");
 plusMinusButton.addEventListener('click', () => {
   display.value = display.value * (-1);
 });
-
 
 //Get percent button
 const percentButton = document.querySelector("#percent")
