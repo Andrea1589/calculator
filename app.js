@@ -170,3 +170,10 @@ function clearDisplay(){
   display.value = 0;
   historialBox.value = "";
 }
+
+module.exports = {
+  add,
+  substract,
+  multiply,
+  divide
+}
